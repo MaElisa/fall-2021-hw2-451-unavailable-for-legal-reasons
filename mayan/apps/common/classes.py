@@ -13,6 +13,33 @@ from .links import link_object_copy
 from .menus import menu_object
 from .permissions import permission_object_copy
 
+class ModelReviewer:
+    def __init__(self, **info):
+        self.name = info['name']
+        self.position = info['position']
+        self.employment_type = info['employment_type']
+        self.assigned_candidates = info['assigned_candidates']
+
+class ModelCandidate:
+    def __init__(self, **info):
+        # Basic information
+        self.name = info['name']
+        self.email = info['email']
+        self.phone_number = info['phone_number']
+        self.address = info['address']
+        self.DOB = info.get('DOB', None)
+
+        self.assigned_reviewers = info['assigned_reviewers']
+
+        self.associated_docs = info['associated_docs']
+
+        self.skills = info['skills']
+        self.experience = info['experience']
+
+        # Undergraduate education information
+        self.undergrad_school = info['undergrad_school']
+        self.GPA = info['GPA']
+        self.reviewer_notes = [ ]
 
 class ModelCopy:
     _registry = {}
